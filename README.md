@@ -40,10 +40,13 @@ cp .env.example .env
 # 4. Migraciones
 npx prisma migrate deploy
 
-# 5. Datos de ejemplo (6 solicitudes: pendiente / aprobada / rechazada)
+# 5. Cliente de Prisma (está ignorado por git, se regenera en cada clon)
+npx prisma generate
+
+# 6. Datos de ejemplo (6 solicitudes: pendiente / aprobada / rechazada)
 npm run db:seed
 
-# 6. API en modo desarrollo
+# 7. API en modo desarrollo
 npm run start:dev
 ```
 
