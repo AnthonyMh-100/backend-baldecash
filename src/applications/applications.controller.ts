@@ -1,6 +1,7 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post, Query } from '@nestjs/common';
 import { ApplicationsService } from './applications.service.js';
 import { CreateApplicationDto } from './dto/application.dto.js';
+import { QueryApplicationDto } from './dto/query.dto.js';
 
 @Controller('solicitudes')
 export class ApplicationsController {
@@ -12,5 +13,7 @@ export class ApplicationsController {
   }
 
   @Get()
-  getApplications() {}
+  getApplications(@Query() query: QueryApplicationDto) {
+    return this.applicationsService.getApplicationsService(query);
+  }
 }
